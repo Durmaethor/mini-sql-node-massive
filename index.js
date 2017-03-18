@@ -7,7 +7,10 @@ var connectionString = "Ryan:Limitless-2017!@localhost/sandbox";
 var massiveInstance = massive.connectSync({connectionString: connectionString})
 app.set('db', massiveInstance);
 
-var db = app.get('db');
+//var db = app.get('db');
+
+var controller = require('./controller.js');
+controller.getPlanes();
 
 var app = module.exports = express();
 app.use(bodyParser.json());
@@ -17,9 +20,10 @@ db.new_plane(function(err, planes){
     console.log(err, "plane added")
 });
 
-db.get_planes(function(err, planes){
-    console.log(err, planes)
-});
+// db.get_planes(function(err, planes){
+//     console.log(err, planes)
+// });
+
 
 
 
